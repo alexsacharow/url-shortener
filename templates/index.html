@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+  <head>
+    <title>URL Shortener</title>
+    <link rel="stylesheet" href="./normalize.css" />
+    <style>
+      * {
+        font-family:
+          -apple-system,
+          BlinkMacSystemFont,
+          avenir next,
+          avenir,
+          segoe ui,
+          helvetica neue,
+          Cantarell,
+          Ubuntu,
+          roboto,
+          noto,
+          helvetica,
+          arial,
+          sans-serif;
+      }
+      body {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      .container {
+        background: #f0f0f0;
+        padding: 20px;
+        border-radius: 8px;
+      }
+      input[type="text"] {
+        width: 60%;
+        padding: 8px;
+      }
+      .result {
+        margin-top: 20px;
+        word-break: break-all;
+      }
+      .error {
+        color: #dc3545;
+        margin: 10px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>URL Shortener</h1>
+      <form method="POST">
+        <input type="text" name="url" placeholder="Enter URL here" required />
+        <button type="submit">Shorten</button>
+      </form>
+
+      {% if error %}
+      <div class="error">{{ error }}</div>
+      {% endif %} {% if shortened_url %}
+      <div class="result">
+        <h3>Shortened URL:</h3>
+        <a href="{{ shortened_url }}" target="_blank">{{ shortened_url }}</a>
+      </div>
+      {% endif %}
+    </div>
+  </body>
+</html>
